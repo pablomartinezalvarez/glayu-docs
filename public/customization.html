@@ -6,7 +6,7 @@
     	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    	<title>Overview</title>
+    	<title>Customization</title>
     	<meta name="description" content="">
 
     	<link rel="stylesheet" href="assets/css/styles.css" >
@@ -48,14 +48,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-9">
-            <h2>What is Glayu?</h2>
-<p>Glayu is a static site generator focused on mid-sized sites, that generate content frequently and have to deal with multiple categories, like magazines and newspapers.</p>
-<h2>What makes Glayu different?</h2>
-<p>What makes Glayu different from other static site generators is the way it structures the source folder: when you publish an article using Glayu the .md file is placed inside a subfolder of the <code class="inline">source</code> directory following the permalink definition.</p>
-<p>With the default permalink definition <code class="inline">categories/year/month/day/title</code>  your <code class="inline">source</code> and <code class="inline">public</code> directories will look like:</p>
-<pre><code class="">TODO Image</code></pre>
-<p>The motivations of this <code class="inline">source</code> folder organization is to split the site content in smaller units that can be managed independently. Glayu takes advance of this folder organization to enable the concurrent and partial generation of the site. In the previous example a complete build of the site will handle the <code class="inline">/source/_posts/world/2017/07/11</code> and <code class="inline">/source/_posts/us/2017/11</code>  folders concurrently. Glayu enables the partial generation of the site by using regular expressions, so if you will be interested in only generate the <code class="inline">world</code> articles you could use the <code class="inline">build</code> command like this:</p>
-<pre><code class="console">$ glayu build _posts/world*</code></pre>
+            <p>A new Glayu page</p>
 
         </div>
         <div class="col-md-3">
@@ -67,22 +60,7 @@
     <ul id="lateral-menu" class="nav nav-pills nav-stacked">
         
             
-                <li class="active" role="presentation"><a href="./overview.html">Overview</a></li>
-                
-                    
-                    <ul class="nav">
-                        <li role="presentation">
-                            <a href="#what-is-glayu">What is Glayu?</a>
-                        </li>
-                    </ul>
-                    
-                    <ul class="nav">
-                        <li role="presentation">
-                            <a href="#what-makes-glayu-different">What makes Glayu different?</a>
-                        </li>
-                    </ul>
-                    
-                
+                <li role="presentation"><a href="./overview.html">Overview</a></li>
             
         
             
@@ -102,7 +80,40 @@
             
         
             
-                <li role="presentation"><a href="./customization.html">Customization</a></li>
+                <li class="active" role="presentation"><a href="./customization.html">Customization</a></li>
+                
+                    
+                    <ul class="nav">
+                        <li role="presentation">
+                            <a href="#permalinks">permalinks</a>
+                        </li>
+                    </ul>
+                    
+                    <ul class="nav">
+                        <li role="presentation">
+                            <a href="#themes">themes</a>
+                        </li>
+                    </ul>
+                    
+                    <ul class="nav">
+                        <li role="presentation">
+                            <a href="#templates">templates</a>
+                        </li>
+                    </ul>
+                    
+                    <ul class="nav">
+                        <li role="presentation">
+                            <a href="#variables">variables</a>
+                        </li>
+                    </ul>
+                    
+                    <ul class="nav">
+                        <li role="presentation">
+                            <a href="#helpers">helpers</a>
+                        </li>
+                    </ul>
+                    
+                
             
         
     </ul>
