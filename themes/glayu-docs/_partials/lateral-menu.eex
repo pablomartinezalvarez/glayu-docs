@@ -1,0 +1,55 @@
+<% use Glayu.EEx %>
+
+<%
+sections = [
+  %{name: "Overview", src: "./overview.html", children: [
+    %{name: "What is Glayu?", src: "#what-is-glayu"},
+    %{name: "What makes Glayu different?", src: "#what-makes-glayu-different"}
+  ]},
+  %{name: "Installation", src: "./install.html", children: [
+    %{name: "Escript", src: "#escript"},
+    %{name: "Build from source", src: "#build-from-source"}
+  ]},
+  %{name: "Basic Usage", src: "./usage.html", children: [
+    %{name: "Site Setup", src: "#site-setup"},
+    %{name: "Posts and Pages", src: "#posts-and-pages"},
+    %{name: "Site Generation", src: "#site-generation"}
+  ]},
+  %{name: "Commands", src: "./commands.html", children: [
+    %{name: "init", src: "#init"},
+    %{name: "new", src: "#new"},
+    %{name: "publish", src: "#publish"},
+    %{name: "build", src: "#build"},
+    %{name: "help", src: "#help"}
+  ]},
+  %{name: "Running in Production", src: "./production.html"},
+    %{name: "Customization", src: "./customization.html", children: [
+    %{name: "permalinks", src: "#permalinks"},
+    %{name: "themes", src: "#themes"},
+    %{name: "templates", src: "#templates"},
+    %{name: "variables", src: "#variables"},
+    %{name: "helpers", src: "#helpers"}
+  ]},
+]
+%>
+
+<div id="lateral-menu-container" class="col-md-3 hidden-print hidden-sm hidden-xs affix">
+    <ul id="lateral-menu" class="nav nav-pills nav-stacked">
+        <%= for section <- sections do %>
+            <%= if  section.name == @page.title do %>
+                <li class="active" role="presentation"><a href="<%=section.src%>"><%=section.name%></a></li>
+                <%= if  section[:children] do %>
+                    <%= for sub_section <- section.children do %>
+                    <ul class="nav">
+                        <li role="presentation">
+                            <a href="<%=sub_section.src%>"><%=sub_section.name%></a>
+                        </li>
+                    </ul>
+                    <% end %>
+                <% end %>
+            <% else %>
+                <li role="presentation"><a href="<%=section.src%>"><%=section.name%></a></li>
+            <% end %>
+        <% end %>
+    </ul>
+</div>
