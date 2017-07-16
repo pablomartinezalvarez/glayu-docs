@@ -8066,7 +8066,7 @@ button.close {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
-  src: local("Montserrat"), url(../fonts/unifraktur-maguntia/montserrat-maguntia.woff2) format("woff2"); }
+  src: local("Montserrat"), url(../fonts/montserrat/montserrat-regular-latin.woff2) format("woff2"); }
 
 body {
   padding-top: 90px; }
@@ -8075,12 +8075,23 @@ h1, .h1, h2, .h2, h3, .h3 {
   margin-top: 25px;
   margin-bottom: 15px; }
 
+pre, code {
+  border-radius: 3px; }
+
+.content img {
+  display: inline-block;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
 nav.navbar-fixed-top {
   background-color: #ffffff;
   border-bottom: 1px solid #eeeeee; }
   nav.navbar-fixed-top .navbar-brand {
     padding-top: 18px;
     padding-bottom: 18px; }
+    nav.navbar-fixed-top .navbar-brand img {
+      width: 120px; }
   nav.navbar-fixed-top .nav > li.active > a {
     color: #3b9ccb;
     background-color: transparent; }
@@ -8099,6 +8110,8 @@ nav.navbar-fixed-top {
 #lateral-menu-container {
   position: fixed;
   top: 120px; }
+  #lateral-menu-container .nav-stacked > li + li {
+    margin-top: 0; }
   #lateral-menu-container .nav li > a {
     font-weight: 500;
     display: block;
@@ -8116,23 +8129,21 @@ nav.navbar-fixed-top {
     text-decoration: none;
     background-color: transparent;
     border-left: 1px solid #3b9ccb; }
-  #lateral-menu-container .nav .nav {
-    padding-bottom: 10px; }
-    #lateral-menu-container .nav .nav li > a {
-      padding-top: 1px;
-      padding-bottom: 1px;
-      padding-left: 30px;
-      font-size: 14px;
-      font-weight: 400; }
-    #lateral-menu-container .nav .nav .active:focus > a, #lateral-menu-container .nav .nav .active:hover > a, #lateral-menu-container .nav .nav .active > a {
-      padding-left: 28px;
-      background-color: transparent;
-      border-left: 2px solid #3b9ccb;
-      color: #3b9ccb; }
-    #lateral-menu-container .nav .nav li > a:focus, #lateral-menu-container .nav .nav li > a:hover {
-      padding-left: 29px;
-      color: #3b9ccb;
-      text-decoration: none;
-      background-color: transparent;
-      border-left: 1px solid #3b9ccb; }
+  #lateral-menu-container .nav .nav li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 14px;
+    font-weight: 400; }
+  #lateral-menu-container .nav .nav .active:focus > a, #lateral-menu-container .nav .nav .active:hover > a, #lateral-menu-container .nav .nav .active > a {
+    padding-left: 28px;
+    background-color: transparent;
+    border-left: 2px solid #3b9ccb;
+    color: #3b9ccb; }
+  #lateral-menu-container .nav .nav li > a:focus, #lateral-menu-container .nav .nav li > a:hover {
+    padding-left: 29px;
+    color: #3b9ccb;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid #3b9ccb; }
 /*# sourceMappingURL=styles.css.map */

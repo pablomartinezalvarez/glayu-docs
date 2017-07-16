@@ -17,8 +17,10 @@
     	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     	<![endif]-->
+		<!-- code highlight -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
     </head>
-    <body>
+    <body data-spy="scroll" data-target="#lateral-menu" data-offset="100">
         
 
 <nav class="navbar navbar-fixed-top">
@@ -40,22 +42,46 @@
                 <li><a href="#">Themes</a></li>
             </ul>
             <ul class="nav icons-nav navbar-nav navbar-right">
-                <li><a href="#"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                <li><a href="https://github.com/pmartinezalvarez/glayu"><i class="fa fa-github" aria-hidden="true"></i></a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
-<div class="container">
+<div class="content container">
     <div class="row">
         <div class="col-md-9">
-            <h2>What is Glayu?</h2>
+            <h1>Overview</h1>
+<h2><a id="what-is-glayu"></a> What is Glayu?</h2>
 <p>Glayu is a static site generator focused on mid-sized sites, that generate content frequently and have to deal with multiple categories, like magazines and newspapers.</p>
-<h2>What makes Glayu different?</h2>
-<p>What makes Glayu different from other static site generators is the way it structures the source folder: when you publish an article using Glayu the .md file is placed inside a subfolder of the <code class="inline">source</code> directory following the permalink definition.</p>
+<p>What makes Glayu different from other static site generators is the way it structures the source folder: when you publish an article using Glayu, the markdown file is placed inside a subfolder of the <code class="inline">source</code> directory following the permalink definition.</p>
 <p>With the default permalink definition <code class="inline">categories/year/month/day/title</code>  your <code class="inline">source</code> and <code class="inline">public</code> directories will look like:</p>
-<pre><code class="">TODO Image</code></pre>
+<p><img src="./assets/images/overview/workflow.png" alt="Workflow"/></p>
 <p>The motivations of this <code class="inline">source</code> folder organization is to split the site content in smaller units that can be managed independently. Glayu takes advance of this folder organization to enable the concurrent and partial generation of the site. In the previous example a complete build of the site will handle the <code class="inline">/source/_posts/world/2017/07/11</code> and <code class="inline">/source/_posts/us/2017/11</code>  folders concurrently. Glayu enables the partial generation of the site by using regular expressions, so if you will be interested in only generate the <code class="inline">world</code> articles you could use the <code class="inline">build</code> command like this:</p>
 <pre><code class="console">$ glayu build _posts/world*</code></pre>
+<h2><a id="quick-start"></a> Quick Start</h2>
+<p>Pre-requisites: <a href="http://www.erlang.org/downloads">Erlang</a> installed on your machine.</p>
+<p>Get the latest <a href="https://github.com/pmartinezalvarez/glayu/raw/master/glayu">Glayu binary</a>, grant execution permissions if needed, and add it to your <code class="inline">PATH</code></p>
+<p>Init the site.</p>
+<pre><code class="console">$ glayu init glayu_site
+🐦 Your Glayu site has been created at ${PATH_TO_SITE}/glayu_site</code></pre>
+<p>Create your first post.</p>
+<pre><code class="console">$ cd ./glayu_site
+$ glayu new &quot;My First Glayu Article&quot;
+🐦 Post created at ${PATH_TO_SITE}/glayu_site/source/_drafts/my-first-glayu-article.md</code></pre>
+<p>Publish your post.</p>
+<pre><code class="console">$ glayu publish my-first-glayu-article.md
+🐦 Draft published to ${PATH_TO_SITE}/glayu_site/source/_posts/software/static-sites/2017/07/11/my-first-glayu-article.md</code></pre>
+<p>Build the site.</p>
+<pre><code class="console">$ glayu build
+✓ Site pages generated.
+└── 1 pages generated.
+✓ Category pages generated.
+└── 2 category pages generated.
+✓ Home page generated.
+✓ Site assets copied from theme folder to public folder.
+└── 20 files copied.
+🐦 Site Generated Successfully.</code></pre>
+<p>The site pages are generated under <code class="inline">../glayu_site/public</code></p>
 
         </div>
         <div class="col-md-3">
@@ -78,7 +104,7 @@
                     
                     <ul class="nav">
                         <li role="presentation">
-                            <a href="#what-makes-glayu-different">What makes Glayu different?</a>
+                            <a href="#quick-start">Quick Start</a>
                         </li>
                     </ul>
                     
@@ -112,7 +138,9 @@
 </div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<!-- code highlight -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="assets/js/scripts.min.js" async></script>
+		<script src="assets/js/scripts.js" async></script>
     </body>
 </html>

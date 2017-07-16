@@ -17,8 +17,10 @@
     	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     	<![endif]-->
+		<!-- code highlight -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
     </head>
-    <body>
+    <body data-spy="scroll" data-target="#lateral-menu" data-offset="100">
         
 
 <nav class="navbar navbar-fixed-top">
@@ -40,15 +42,153 @@
                 <li><a href="#">Themes</a></li>
             </ul>
             <ul class="nav icons-nav navbar-nav navbar-right">
-                <li><a href="#"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                <li><a href="https://github.com/pmartinezalvarez/glayu"><i class="fa fa-github" aria-hidden="true"></i></a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
-<div class="container">
+<div class="content container">
     <div class="row">
         <div class="col-md-9">
-            <p>A new Glayu page</p>
+            <h1>Commands</h1>
+<h2><a id="init"></a> init</h2>
+<pre><code class="console">glayu init [folder]</code></pre>
+<p>Initializes the website.</p>
+<p>If no <code class="inline">folder</code> is provided, the website will be configured in the current directory.</p>
+<p>If the destination folder exists and contains a <code class="inline">_config.yml</code> file, this configuration file will be used to initialize the site.</p>
+<h4>Arguments</h4>
+<table>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left">Argument</th><th style="text-align: left">Description</th>
+</tr>
+</thead>
+<tr>
+<td style="text-align: left"><code class="inline">folder</code></td><td style="text-align: left">Website destination folder. If the destination folder doesn’t exists the full path to it will be created.</td>
+</tr>
+</table>
+<h4>Examples</h4>
+<pre><code class="console">$ mkdir my-glayu-site
+$ cd my-glayu-site
+$ glayu init</code></pre>
+<p>or</p>
+<pre><code class="console">$ glayu init ./my-glayu-site</code></pre>
+<h2><a id="new"></a> new</h2>
+<pre><code class="console">glayu new [layout] &lt;title&gt;</code></pre>
+<p>Creates a new post or page. </p>
+<p>All new posts are considered drafts and will placed under the <code class="inline">source/_drafts</code> directory, this directory will be skipped during a site build. When a post is ready it can be published using the <code class="inline">publish</code> command.</p>
+<p>All pages are placed under the <code class="inline">source</code> directory, and are rendered during a site build.</p>
+<h4>Arguments</h4>
+<table>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left">Argument</th><th style="text-align: left">Description</th>
+</tr>
+</thead>
+<tr>
+<td style="text-align: left"><code class="inline">[layout]</code></td><td style="text-align: left"><strong>post</strong> or <strong>page</strong>. If no layout is provided, Glayu will use the post layout.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">&lt;title&gt;</code></td><td style="text-align: left">Article title. If the title contains spaces, surround it with quotation marks.</td>
+</tr>
+</table>
+<h4>Examples</h4>
+<pre><code class="console">$ glayu new &quot;My First Glayu Post&quot;</code></pre>
+<h2><a id="publish"></a> publish</h2>
+<pre><code class="console">glayu publish &lt;filename&gt;</code></pre>
+<p>Publishes a draft.</p>
+<p>The markdown file will be moved from the <code class="inline">source/_drafts</code> directory to a directory under <code class="inline">source/_posts</code> following the permalik definition provided in <code class="inline">_config.yml</code>.</p>
+<h4>Arguments</h4>
+<table>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left">Argument</th><th style="text-align: left">Description</th>
+</tr>
+</thead>
+<tr>
+<td style="text-align: left"><code class="inline">&lt;filename&gt;</code></td><td style="text-align: left">Markdown source file. The file name or the file path can be provided.</td>
+</tr>
+</table>
+<h4>Examples</h4>
+<pre><code class="console">$ glayu publish my-first-glayu-post.md</code></pre>
+<p>or</p>
+<pre><code class="console">glayu publish {site_dir}/source/_drafts/my-first-glayu-post.md</code></pre>
+<h2><a id="build"></a> build</h2>
+<pre><code class="console">glayu build [-chp] [regex]</code></pre>
+<p>Generates the static files.</p>
+<h4>Arguments</h4>
+<table>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left">Argument</th><th style="text-align: left">Description</th>
+</tr>
+</thead>
+<tr>
+<td style="text-align: left"><code class="inline">[regex]</code></td><td style="text-align: left">If provided, only the pages under the directories matching the regex will be generated. The regular expression is based on PCRE (Perl Compatible Regular Expressions)</td>
+</tr>
+</table>
+<h4>Options</h4>
+<p>If one of the <code class="inline">-chp</code> options is provided the building process will consider only the resource types provided on the options.</p>
+<table>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left">Option</th><th style="text-align: left">Description</th>
+</tr>
+</thead>
+<tr>
+<td style="text-align: left"><code class="inline">[-c, --categories]</code></td><td style="text-align: left">Adds category pages to the building pipeline.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">[-h, --home]</code></td><td style="text-align: left">Adds home page to the building pipeline.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">[-p, --pages]</code></td><td style="text-align: left">Adds post and pages to the building pipeline.</td>
+</tr>
+</table>
+<h4>Examples</h4>
+<pre><code class="console">$ glayu build </code></pre>
+<p>generates the full site</p>
+<pre><code class="console">$ glayu build _posts/business/.*2017/.*</code></pre>
+<p>generates all 2017 business pages</p>
+<h2><a id="help"></a> help</h2>
+<pre><code class="console">glayu help [command]</code></pre>
+<p>Displays help.</p>
+<p>If <code class="inline">command</code> is not specified, all of the commands supported by Glayu are listed.</p>
+<h4>Arguments</h4>
+<table>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left">Argument</th><th style="text-align: left">Description</th>
+</tr>
+</thead>
+<tr>
+<td style="text-align: left"><code class="inline">[command]</code></td><td style="text-align: left">Displays help information on that command.</td>
+</tr>
+</table>
 
         </div>
         <div class="col-md-3">
@@ -123,7 +263,9 @@
 </div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<!-- code highlight -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="assets/js/scripts.min.js" async></script>
+		<script src="assets/js/scripts.js" async></script>
     </body>
 </html>

@@ -17,8 +17,10 @@
     	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     	<![endif]-->
+		<!-- code highlight -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
     </head>
-    <body>
+    <body data-spy="scroll" data-target="#lateral-menu" data-offset="100">
         
 
 <nav class="navbar navbar-fixed-top">
@@ -40,15 +42,379 @@
                 <li><a href="#">Themes</a></li>
             </ul>
             <ul class="nav icons-nav navbar-nav navbar-right">
-                <li><a href="#"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                <li><a href="https://github.com/pmartinezalvarez/glayu"><i class="fa fa-github" aria-hidden="true"></i></a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
-<div class="container">
+<div class="content container">
     <div class="row">
         <div class="col-md-9">
-            <p>A new Glayu page</p>
+            <h1>Customization</h1>
+<h2><a id="permalinks"></a> Permalinks</h2>
+<p>You can specify the permalinks for your site in <code class="inline">_config.yml</code></p>
+<p>The default value is: </p>
+<p><code class="inline">categories/year/month/day/title</code></p>
+<p>Supported variables are:</p>
+<table>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left">Variable</th><th style="text-align: left">Description</th>
+</tr>
+</thead>
+<tr>
+<td style="text-align: left">categories</td><td style="text-align: left">Categories extracted from the post <strong>Front-matter</strong></td>
+</tr>
+<tr>
+<td style="text-align: left">year</td><td style="text-align: left">Year, extracted from post publication date (4-digits)</td>
+</tr>
+<tr>
+<td style="text-align: left">month</td><td style="text-align: left">Month, extracted from post publication date (2-digits)</td>
+</tr>
+<tr>
+<td style="text-align: left">day</td><td style="text-align: left">Day of the month, extracted from post publication date (2-digits)</td>
+</tr>
+<tr>
+<td style="text-align: left">title</td><td style="text-align: left">Slugified post title.</td>
+</tr>
+</table>
+<h2><a id="themes"></a> Themes</h2>
+<p>The active theme is defined by the <code class="inline">theme</code> variable on your site configuration file <code class="inline">_config.yml</code>.</p>
+<p>The default value is <code class="inline">glayu-times</code>, it enables <a href="https://github.com/pmartinezalvarez/glayu-times-theme">The Glayu Times</a> theme, downloaded to the <code class="inline">themes/glayu-times</code> folder after running <code class="inline">init</code>.</p>
+<p>If the variable <code class="inline">theme_uri</code> is defined, the <code class="inline">init</code> command will try to download the selected theme from the specified uri.</p>
+<p>To create a new theme, create a directory under the <code class="inline">themes</code> folder. The directory name is the value you will have to provide on <code class="inline">_config.yml</code> to activate your theme.</p>
+<p>A theme should have the following structure:</p>
+<pre><code class="">.
+├── _layouts
+├── _partials
+└── assets</code></pre>
+<h3>_layouts</h3>
+<p>This folder contains the theme’s template files, which define the appearance of your website. Glayu uses the <a href="https://hexdocs.pm/eex/EEx.html">Embedded Elixir (EEx)</a> templates engine.</p>
+<h3>_partials</h3>
+<p>This folder contains components that are shared between your templates.</p>
+<h3>assets</h3>
+<p>Compiled assets, this directory will be copied to the public site directory on each build.</p>
+<h2><a id="templates"></a> Templates</h2>
+<p>Templates are stored under the <code class="inline">_layouts</code> folder and define the presentation of your site. The table below shows the corresponding template for every available page.</p>
+<table>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left">Template</th><th style="text-align: left">Page</th>
+</tr>
+</thead>
+<tr>
+<td style="text-align: left"><code class="inline">layout.eex</code></td><td style="text-align: left">Global layout common to all pages</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">home.eex</code></td><td style="text-align: left">site home</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">post.eex</code></td><td style="text-align: left">posts</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">page.eex</code></td><td style="text-align: left">pages</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">category.eex</code></td><td style="text-align: left">category home</td>
+</tr>
+</table>
+<h3>Global Layout</h3>
+<p>The global layout provides a structure shared by all pages. It should contain a <code class="inline">&lt;%= @inner %&gt;</code> directive that will be replaced with the content of the corresponding template, depending on the page type.</p>
+<h4>Example</h4>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;&lt;%= @page.title%&gt;&lt;/title&gt;
+    &lt;!-- Style sheets --&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;%= @inner %&gt;
+    &lt;!-- Scripts --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h3>Partials</h3>
+<p>Partials are a tool to share components between templates. Typical use cases are page sections like the header, footer or navbars.</p>
+<p>All <code class="inline">.eex</code> files placed under the <code class="inline">_partials</code> folder will be compiled and can be required inside any template using the directive:</p>
+<pre><code class="html">&lt;%= partial &quot;&lt;partialname&gt;&quot; %&gt;</code></pre>
+<p>Before using the <code class="inline">partial</code> directive you have to declare that you want tu use the <code class="inline">Glayu.EEx</code> module:</p>
+<pre><code class="html">&lt;% use Glayu.EEx %&gt;</code></pre>
+<h4>Example</h4>
+<p><code class="inline">_partials/header.eex</code></p>
+<pre><code class="html">&lt;h1 id=&quot;header&quot;&gt;&lt;%= @page.title%&gt;&lt;/h1&gt;</code></pre>
+<p><code class="inline">_layouts/home.eex</code></p>
+<pre><code class="html">&lt;% use Glayu.EEx %&gt;
+&lt;%= partial &quot;header&quot; %&gt;
+&lt;div&gt;
+&lt;!-- page content -&gt;
+&lt;/div&gt;</code></pre>
+<p>Will be handled as:</p>
+<pre><code class="html">&lt;h1 id=&quot;header&quot;&gt;&lt;%= @page.title%&gt;&lt;/h1&gt;
+&lt;div&gt;
+&lt;!-- page content -&gt;
+&lt;/div&gt;</code></pre>
+<h2><a id="variables"></a> Variables</h2>
+<h3>Site Variables</h3>
+<table>
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left">Variable</th><th style="text-align: left">Description</th><th style="text-align: left">Type</th>
+</tr>
+</thead>
+<tr>
+<td style="text-align: left"><code class="inline">@site.title</code></td><td style="text-align: left">Site title</td><td style="text-align: left">String</td>
+</tr>
+</table>
+<h3>Page Common Variables</h3>
+<table>
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left">Variable</th><th style="text-align: left">Description</th><th style="text-align: left">Type</th>
+</tr>
+</thead>
+<tr>
+<td style="text-align: left"><code class="inline">@page.title</code></td><td style="text-align: left">Page Title</td><td style="text-align: left"><code class="inline">String</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">@page.layout</code></td><td style="text-align: left">Page layout <code class="inline">:post</code>, <code class="inline">:page</code>, <code class="inline">:category</code> or <code class="inline">:home</code></td><td style="text-align: left"><code class="inline">atom</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">@page.type</code></td><td style="text-align: left">Page type <code class="inline">:draft</code>, <code class="inline">:post</code>, <code class="inline">:page</code>, <code class="inline">:category</code> or <code class="inline">:home</code></td><td style="text-align: left"><code class="inline">atom</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">@page.path</code></td><td style="text-align: left">Page relative URL path</td><td style="text-align: left"><code class="inline">String</code></td>
+</tr>
+</table>
+<p>All extra <strong>Front-matter</strong> variables will be added to the <code class="inline">@page</code> scope.</p>
+<h3>Post and Page Common Variables</h3>
+<table>
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left">Variable</th><th style="text-align: left">Description</th><th style="text-align: left">Type</th>
+</tr>
+</thead>
+<tr>
+<td style="text-align: left"><code class="inline">@page.date</code></td><td style="text-align: left">Page publication date</td><td style="text-align: left"><a href="https://hexdocs.pm/elixir/DateTime.html"><code class="inline">DateTime</code></a></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">@page.source</code></td><td style="text-align: left">Source markdown file path</td><td style="text-align: left"><code class="inline">String</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">@page.raw</code></td><td style="text-align: left">Content as Markdown</td><td style="text-align: left"><code class="inline">String</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">@page.content</code></td><td style="text-align: left">Content as HTML</td><td style="text-align: left"><code class="inline">String</code></td>
+</tr>
+</table>
+<h3>Post Specific Variables</h3>
+<table>
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left">Variable</th><th style="text-align: left">Description</th><th style="text-align: left">Type</th>
+</tr>
+</thead>
+<tr>
+<td style="text-align: left"><code class="inline">@page.categories</code></td><td style="text-align: left">Post categories. It is a <code class="inline">List</code> where each item is a <code class="inline">Map</code> including following fields: <code class="inline">keys</code>, <code class="inline">name</code>, <code class="inline">path</code>. The <code class="inline">keys</code> identify the category and are required to retrieve extra information like the category latest posts. <code class="inline">name</code> is the category name. And <code class="inline">path</code> is the relative URL to the category home page.</td><td style="text-align: left"><code class="inline">List</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">@page.summary</code></td><td style="text-align: left">Post summary (HTML)</td><td style="text-align: left"><code class="inline">String</code></td>
+</tr>
+</table>
+<p>Optional Variables</p>
+<table>
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left">Variable</th><th style="text-align: left">Description</th><th style="text-align: left">Type</th>
+</tr>
+</thead>
+<tr>
+<td style="text-align: left"><code class="inline">@page.tags</code></td><td style="text-align: left">Post tags list.</td><td style="text-align: left"><code class="inline">List</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">author</code></td><td style="text-align: left">Post author</td><td style="text-align: left"><code class="inline">String</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">featured_image</code></td><td style="text-align: left">Featured image</td><td style="text-align: left"><code class="inline">String</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">score</code></td><td style="text-align: left">Page relevance score</td><td style="text-align: left"><code class="inline">String</code></td>
+</tr>
+</table>
+<h3>Category Page Specific Variables</h3>
+<table>
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left">Variable</th><th style="text-align: left">Description</th><th style="text-align: left">Type</th>
+</tr>
+</thead>
+<tr>
+<td style="text-align: left"><code class="inline">@page.category</code></td><td style="text-align: left">Current category</td><td style="text-align: left"><code class="inline">Map</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">@page.category.keys</code></td><td style="text-align: left">Category Keys</td><td style="text-align: left"><code class="inline">List</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">@page.category.name</code></td><td style="text-align: left">Category Name</td><td style="text-align: left"><code class="inline">String</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">@page.category.path</code></td><td style="text-align: left">Relative URL path, the same value as <code class="inline">@page.path</code></td><td style="text-align: left"><code class="inline">String</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">@page.category.parent</code></td><td style="text-align: left">Parent category on the site hierarchy, includes the fields: <code class="inline">keys</code>, <code class="inline">name</code> and <code class="inline">path</code></td><td style="text-align: left"><code class="inline">Map</code></td>
+</tr>
+</table>
+<h2><a id="helpers"></a> Helpers</h2>
+<p>The <code class="inline">Glayu.EEx</code> module includes a set of helpers that can be invoked in your templates after include the <code class="inline">&lt;% use Glayu.EEx %&gt;</code> directive.</p>
+<h3>Categories</h3>
+<pre><code class="">categories()</code></pre>
+<p>Returns the list of first level categories of the site. Each category is a <code class="inline">Map</code> containing following fields:</p>
+<table>
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left">Field</th><th style="text-align: left">Description</th><th style="text-align: left">Type</th>
+</tr>
+</thead>
+<tr>
+<td style="text-align: left"><code class="inline">keys</code></td><td style="text-align: left">Category keys</td><td style="text-align: left"><code class="inline">List</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">name</code></td><td style="text-align: left">Category name</td><td style="text-align: left"><code class="inline">String</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">path</code></td><td style="text-align: left">Category home page relative URL</td><td style="text-align: left"><code class="inline">String</code></td>
+</tr>
+</table>
+<h3>Subcategories</h3>
+<pre><code class="elixir">subcategories(&lt;category_keys&gt;)</code></pre>
+<p>return the list of subcategories of a given category.</p>
+<h4>Arguments</h4>
+<table>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left">Field</th><th style="text-align: left">Description</th>
+</tr>
+</thead>
+<tr>
+<td style="text-align: left"><code class="inline">keys</code></td><td style="text-align: left">Parent category keys</td>
+</tr>
+</table>
+<h4>Examples</h4>
+<p>Rendering the sub-categories menu on a category page.</p>
+<pre><code class="html">&lt;nav id=&quot;mini-navigation&quot;&gt;
+  &lt;ul class=&quot;nav navbar-nav&quot;&gt;
+  &lt;%= for subcategory &lt;- subcategories(@page.category.keys) do %&gt;
+  &lt;li&gt;&lt;a href=&quot;&lt;%= subcategory.path %&gt;&quot;&gt;&lt;%= subcategory.name %&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;% end %&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+<h3>Latest Posts</h3>
+<pre><code class="elixir">posts([limit: &lt;num_posts&gt;, sort_fn: &lt;sort_fn&gt;])</code></pre>
+<p>List the latest site posts.</p>
+<h4>Arguments</h4>
+<table>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left">Argument</th><th style="text-align: left">Description</th>
+</tr>
+</thead>
+<tr>
+<td style="text-align: left"><code class="inline">&lt;num_posts&gt;</code></td><td style="text-align: left">Number of post to be retrieved (max. 100).</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">&lt;sort_fn&gt;</code></td><td style="text-align: left">Sorting function (applied over the last 100)</td>
+</tr>
+</table>
+<h4>Examples</h4>
+<p>Displaying most relevant post of the site.</p>
+<pre><code class="html">&lt;%= for post &lt;- posts([limit: 10, sort_fn: &amp;(&amp;1.score &gt; &amp;2.score)]) do %&gt;
+&lt;div class=&quot;article&quot;&gt;
+  &lt;%= if post[:featured_image] do %&gt;
+  &lt;img src=&quot;&lt;%= post.featured_image %&gt;&quot; alt=&quot;featured image&quot;&gt;
+  &lt;% end %&gt;
+  &lt;h2&gt;&lt;a href=&quot;&lt;%= post.path %&gt;&quot;&gt;&lt;%= post.title %&gt;&lt;/a&gt;&lt;/h2&gt;
+  &lt;div&gt;&lt;%= post.summary %&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;% end %&gt;</code></pre>
+<h3>Latest Category Posts</h3>
+<pre><code class="elixir">posts(&lt;category_keys&gt;, [limit: &lt;num_posts&gt;, sort_fn: &lt;sort_fn&gt;])</code></pre>
+<p>works similar but limiting the returned post to a specific category.</p>
+<h3>Date Formatter</h3>
+<pre><code class="elixir">Date.format(&lt;date&gt;, &lt;strftime_format&gt;)</code></pre>
+<p>Formats an article date.</p>
+<h4>Arguments</h4>
+<table>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left">Argument</th><th style="text-align: left">Description</th>
+</tr>
+</thead>
+<tr>
+<td style="text-align: left"><code class="inline">&lt;date&gt;</code></td><td style="text-align: left">Date to be formated</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">&lt;strftime&gt;</code></td><td style="text-align: left"><a href="http://strftime.org/">strftime</a> compatible expression, that defines the date formal.</td>
+</tr>
+</table>
+<h4>Examples</h4>
+<pre><code class="html">&lt;%= Date.format(post.date, &quot;%Y-%m-%d %H:%M&quot;) %&gt;</code></pre>
+<p>Will render a date formated like: <code class="inline">2017-05-18 06:45:22</code></p>
+<h3>Current Date</h3>
+<pre><code class="elixir">Date.now(&lt;strftime_format&gt;)</code></pre>
+<p>Formats current date and time.</p>
 
         </div>
         <div class="col-md-3">
@@ -123,7 +489,9 @@
 </div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<!-- code highlight -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="assets/js/scripts.min.js" async></script>
+		<script src="assets/js/scripts.js" async></script>
     </body>
 </html>
