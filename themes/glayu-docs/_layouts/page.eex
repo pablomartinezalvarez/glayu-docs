@@ -2,11 +2,18 @@
 <%= partial "head" %>
 <div class="content container">
     <div class="row">
+        <%= if @page.title != "Themes" do %> <!-- Custom templates are required to prevent these kind of creepy things -->
         <div class="col-md-9">
             <%= @page.content %>
         </div>
         <div class="col-md-3">
             <%= partial "lateral-menu" %>
         </div>
+        <% else %>
+        <div class="col-md-12">
+            <%= @page.content %>
+        </div>
+        <% end %>
     </div>
 </div>
+<%= partial "footer" %>

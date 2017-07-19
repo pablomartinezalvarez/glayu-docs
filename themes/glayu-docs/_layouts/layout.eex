@@ -18,7 +18,7 @@
     	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     	<![endif]-->
 		<!-- code highlight -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
     </head>
     <body data-spy="scroll" data-target="#lateral-menu" data-offset="100">
         <%= @inner %>

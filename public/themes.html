@@ -6,7 +6,7 @@
     	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    	<title>Running in Production</title>
+    	<title>Themes</title>
     	<meta name="description" content="">
 
     	<link rel="stylesheet" href="assets/css/styles.css" >
@@ -18,7 +18,7 @@
     	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     	<![endif]-->
 		<!-- code highlight -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
     </head>
     <body data-spy="scroll" data-target="#lateral-menu" data-offset="100">
         
@@ -33,13 +33,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><img src="assets/images/glayu.svg" width="120px" alt="Glayu"></a>
+            <a class="navbar-brand" href="./"><img src="assets/images/glayu.svg" width="120px" alt="Glayu"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Docs</a></li>
-                <li><a href="#">News</a></li>
-                <li><a href="#">Themes</a></li>
+                <li><a href="./overview.html">Docs</a></li>
+                <li><a href="./themes.html">Themes</a></li>
             </ul>
             <ul class="nav icons-nav navbar-nav navbar-right">
                 <li><a href="https://github.com/pmartinezalvarez/glayu"><i class="fa fa-github" aria-hidden="true"></i></a></li>
@@ -49,48 +48,42 @@
 </nav>
 <div class="content container">
     <div class="row">
-        <div class="col-md-9">
-            <p>A new Glayu page</p>
-
-        </div>
-        <div class="col-md-3">
-            
-
-
-
-<div id="lateral-menu-container" class="col-md-3 hidden-print hidden-sm hidden-xs affix">
-    <ul id="lateral-menu" class="nav nav-pills nav-stacked">
         
-            
-                <li role="presentation"><a href="./overview.html">Overview</a></li>
-            
-        
-            
-                <li role="presentation"><a href="./installation.html">Installation</a></li>
-            
-        
-            
-                <li role="presentation"><a href="./basic-usage.html">Basic Usage</a></li>
-            
-        
-            
-                <li role="presentation"><a href="./commands.html">Commands</a></li>
-            
-        
-            
-                <li class="active" role="presentation"><a href="./running-in-production.html">Running in Production</a></li>
-                
-            
-        
-            
-                <li role="presentation"><a href="./customization.html">Customization</a></li>
-            
-        
-    </ul>
+        <div class="col-md-12">
+            <div class="row">
+  <div id="themes" class="col-md-4 col-md-offset-4">
+    <div>
+      <div class="title">
+        <img src="https://raw.githubusercontent.com/pmartinezalvarez/glayu-times/master/mock.png"
+                         alt="mockup"
+                         style="max-width:400px;">
+        <h3>Glayu Times</h3>
+      </div>
+      <div class="info">
+        <p>An old style newspaper theme. This is the glayu default theme.</p>
+        <p>To enable this theme on your glayu site ensure that your <code>_config.yml</code> includes:</p>
+        <pre>theme: glayu-times
+theme_uri: https://github.com/pmartinezalvarez/glayu-times-theme/archive/master.zip</pre>
+        <br/>
+      </div>
+      <div class="actions">
+        <a class="btn btn-default btn-lg" href="https://github.com/pmartinezalvarez/glayu-times-theme/" role="button"><i
+                            class="fa fa-github" aria-hidden="true"></i> contribute</a>
+        <a class="btn btn-default btn-lg" href="https://github.com/pmartinezalvarez/glayu-times-theme/archive/master.zip" role="button"><i
+                            class="fa fa-download" aria-hidden="true"></i> download</a>
+      </div>
+    </div>
+  </div>
 </div>
         </div>
+        
     </div>
 </div>
+<footer class="footer">
+    <div class="container">
+        🐦 <a class="fechu-cun-glayu" href="https://github.com/pmartinezalvarez/glayu"> fechu con glayu</a>
+    </div>
+</footer>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<!-- code highlight -->

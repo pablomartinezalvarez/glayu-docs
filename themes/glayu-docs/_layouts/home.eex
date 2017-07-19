@@ -1,9 +1,43 @@
 <% use Glayu.EEx %>
 <%= partial "head" %>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-        TODO
-        </div>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>glayu</h1>
+        <p>A static site generator for mid-sized sites</p>
+        <p>
+            <span class="help-block"><a href="http://www.erlang.org/downloads">erlang</a> required</span>
+            <a class="btn btn-default btn-lg" href="https://github.com/pmartinezalvarez/glayu/raw/master/glayu" role="button">🐦 get_glayu</a>
+        </p>
     </div>
 </div>
+
+<div class="container">
+    <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h3>|> init_site</h3>
+        <pre><code class="console hljs shell"><span class="hljs-meta">$</span><span class="bash"> glayu init glayu_site</span>
+🐦 Your Glayu site has been created at ${PATH_TO_SITE}/glayu_site</code></pre>
+        <h3>|> new_post</h3>
+        <pre><code class="console hljs shell"><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> ./glayu_site</span>
+<span class="hljs-meta">$</span><span class="bash"> glayu new <span class="hljs-string">"My First Glayu Article"</span></span>
+🐦 Post created at ${PATH_TO_SITE}/glayu_site/source/_drafts/my-first-glayu-article.md</code></pre>
+        <h3>|> publish_post</h3>
+        <pre><code class="console hljs shell"><span class="hljs-meta">$</span><span class="bash"> glayu publish my-first-glayu-article.md</span>
+🐦 Draft published to ${PATH_TO_SITE}/glayu_site/source/_posts/software/static-sites/2017/07/11/my-first-glayu-article.md</code></pre>
+        <h3>|> build_site</h3>
+        <pre><code class="console hljs shell"><span class="hljs-meta">$</span><span class="bash"> glayu build</span>
+✓ Site pages generated.
+└── 1 pages generated.
+✓ Category pages generated.
+└── 2 category pages generated.
+✓ Home page generated.
+✓ Site assets copied from theme folder to public folder.
+└── 20 files copied.
+🐦 Site Generated Successfully.</code></pre>
+        <h3><a href="./overview.html" role="button">|> read_docs</a></h3>
+    </div>
+    </div>
+</div>
+
+<%= partial "footer" %>

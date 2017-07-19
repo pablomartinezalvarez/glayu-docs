@@ -115,7 +115,7 @@ Before using the `partial` directive you have to declare that you want tu use th
 <% use Glayu.EEx %>
 <%= partial "header" %>
 <div>
-<!-- page content ->
+<!-- page content -->
 </div>
 ```
 
@@ -124,7 +124,7 @@ Will be handled as:
 ```html
 <h1 id="header"><%= @page.title%></h1>
 <div>
-<!-- page content ->
+<!-- page content -->
 </div>
 ```
 

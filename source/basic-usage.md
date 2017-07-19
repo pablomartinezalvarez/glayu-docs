@@ -84,7 +84,7 @@ All new posts are _drafts_, and will be saved into the `source/_drafts` director
 The new Markdown file will look like:
 
 ```yml
-----
+---
 title: My First Glayu Post
 date: 2017-05-18 06:45:22
 author:
@@ -97,7 +97,7 @@ categories:
 tags:
 - Glayu
 - Elixir
-----
+---
 A new Glayu post
 ```
 

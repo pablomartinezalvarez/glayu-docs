@@ -22,7 +22,6 @@ sections = [
     %{name: "build", src: "#build"},
     %{name: "help", src: "#help"}
   ]},
-  %{name: "Running in Production", src: "./running-in-production.html"},
   %{name: "Customization", src: "./customization.html", children: [
     %{name: "permalinks", src: "#permalinks"},
     %{name: "themes", src: "#themes"},
@@ -33,6 +32,7 @@ sections = [
 ]
 %>
 
+<%= if @page.title != "Themes" do %> <!-- Custom templates are required to prevent these kind of creepy things -->
 <div id="lateral-menu-container" class="col-md-3 hidden-print hidden-sm hidden-xs affix">
     <ul id="lateral-menu" class="nav nav-pills nav-stacked">
         <%= for section <- sections do %>
@@ -53,3 +53,4 @@ sections = [
         <% end %>
     </ul>
 </div>
+<% end %>

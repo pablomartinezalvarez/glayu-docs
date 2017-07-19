@@ -20,5 +20,7 @@ $('#lateral-menu .nav li a').click(function(event) {
     // is, but apply the offset.
     $(href)[0].scrollIntoView();
     window.scrollBy(0, -navOffset);
-})
+});
+
+hljs.initHighlightingOnLoad();
 //# sourceMappingURL=scripts.js.map
