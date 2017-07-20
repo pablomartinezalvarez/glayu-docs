@@ -1,7 +1,7 @@
 # Glayu Configuration
 
 # Site
-title: Glayu - static site generator              # Site Title
+title: static site generator              # Site Title
 
 # URL
 permalink: categories/year/month/day/title  # Permalink format
