@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    <url>
+        <loc>http://www.glayu.com/index.html</loc>
+        <image:image>
+            <image:loc>http://d33wubrfki0l68.cloudfront.net/3cb7cc6537d9835be2ef8befa6e2564d11c7fa04/475e0/assets/images/glayu.svg</image:loc>
+            <image:caption>Glayu static site generator</image:caption>
+        </image:image>
+    </url>
+    <url>
+        <loc>http://www.glayu.com/overview.html</loc>
+    </url>
+    <url>
+        <loc>http://www.glayu.com/installation.html</loc>
+    </url>
+    <url>
+        <loc>http://www.glayu.com/basic-usage.html</loc>
+    </url>
+    <url>
+        <loc>http://www.glayu.com/commands.html</loc>
+    </url>
+    <url>
+        <loc>http://www.glayu.com/customization.html</loc>
+    </url>
+    <url>
+        <loc>http://www.glayu.com/themes.html</loc>
+    </url>
+</urlset>
