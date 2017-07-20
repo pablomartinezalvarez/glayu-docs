@@ -13,7 +13,11 @@ With the default permalink definition `categories/year/month/day/title`  your `s
 
 ![Workflow](./assets/images/overview/workflow.png)
    
-The motivations of this `source` folder organization is to split the site content in smaller units that can be managed independently. Glayu takes advance of this folder organization to enable the concurrent and partial generation of the site. In the previous example a complete build of the site will handle the `/source/_posts/world/2017/07/11` and `/source/_posts/us/2017/11`  folders concurrently. Glayu enables the partial generation of the site by using regular expressions, so if you will be interested in only generate the `world` articles you could use the `build` command like this:
+The motivation of this `source` folder organization is to split the site content in smaller units that can be managed independently. Glayu takes advance of this folder organization to enable the concurrent and partial generation of the site. 
+
+In the previous example a complete build of the site will handle the `/source/_posts/world/2017/07/11` and `/source/_posts/us/2017/11`  folders concurrently. 
+
+Glayu enables the partial generation of the site by using regular expressions, so if you will be interested in only generate the `world` articles you could use the `build` command like this:
    
 ```console
 $ glayu build _posts/world*
