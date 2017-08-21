@@ -1,6 +1,7 @@
 ---
 title: Basic Usage
 date: 2017-07-11 13:40:33
+layout: lateral-menu-page
 ---
 
 # Basic Usage
@@ -167,3 +168,39 @@ $ glayu build _posts/software/.*2017/
 ```
 
 will render the posts under `software` published on 2017.
+
+## <a id="preview-server"></a> Preview Server
+
+Glayu comes with a preview server to monitor your site changes during the development.
+
+To start the server on the default port [http://localhost:4000/](http://localhost:4000/) run:
+
+```console
+$ glayu serve
+```
+
+### Pre-requisites
+
+The Glayu preview server uses the [file_system](https://github.com/falood/file_system) module that depends on:
+
+* Mac fsevent
+* Linux and FreeBSD inotify
+* Windows inotify-win
+
+It will look for the required backend binary on you system `PATH`:
+
+* On windows download and add [inotifywait.exe](https://github.com/falood/file_system/blob/master/priv/inotifywait.exe) to your `PATH`
+* On Linux and FreeBSD install the `inotify-tools` package.
+* On Mac you can generate the `mac_listener` from the [file_system](https://github.com/falood/file_system) source using the `mix` command. After building the project you will find the binary under `./priv/mac_listener`.
+
+### Preview URIs
+
+Your can preview your drafts, posts and pages by following these examples criteria:
+
+Type | Source | Preview url
+------------ | ------------ | -------------
+Draft | `./source/_drafts/my-first-glayu-post.md` | `http://localhost:4000/_drafts/my-first-glayu-post.md`
+Post | `./source/_posts/software/static-sites/2017/07/11/my-first-glayu-article.md` | `http://localhost:4000/software/static-sites/2017/07/11/my-first-glayu-article.html` and `http://localhost:4000/_posts/software/static-sites/2017/07/11/my-first-glayu-article.html`
+Page | `./source/my-first-glayu-page.md` | `http://localhost:4000/my-first-glayu-page.html`
+
+

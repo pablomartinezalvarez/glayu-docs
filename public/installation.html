@@ -49,12 +49,11 @@
 </nav>
 <div class="content container">
     <div class="row">
-         <!-- Custom templates are required to prevent these kind of creepy things -->
         <div class="col-md-9">
             <h1>Installation</h1>
 <h2><a id="escript"></a> Escript</h2>
 <p>Glayu is distributed as an Escript executable, before running it, you need <a href="http://www.erlang.org/">Erlang</a> installed on your computer. You can find the latest Erlang releases under the <a href="http://www.erlang.org/downloads">Erlang downloads page</a>.</p>
-<p>Once you have installed Erlang. Download the latest <a href="https://github.com/pmartinezalvarez/glayu/blob/master/glayu">glayu binary</a> from the releases section and add it to your PATH. Now you can invoke the <code class="inline">glayu</code> command.</p>
+<p>Once you have installed Erlang. Download the latest <a href="https://github.com/pmartinezalvarez/glayu/raw/master/apps/glayu/glayu">glayu binary</a> from the releases section and add it to your PATH. Now you can invoke the <code class="inline">glayu</code> command.</p>
 <h2><a id="build-from-source"></a> Build From Source</h2>
 <p>Before building Glayu you need <a href="http://elixir-lang.org/">Elixir</a> installed on your computer. A detailed installation guide is available on the <a href="http://elixir-lang.org/install.html">Elixir web page</a>.</p>
 <p>Once you have installed Elixir:</p>
@@ -62,9 +61,12 @@
 <pre><code class="console">$ git clone https://github.com/pmartinezalvarez/glayu.git`</code></pre>
 <p>Get the project dependencies: </p>
 <pre><code class="console">$ mix deps.get</code></pre>
-<p>Generate the glayu Escript executable: </p>
-<pre><code class="console">$ mix escript.build</code></pre>
+<p>Generate the glayu Escript executable from the <code class="inline">./apps/glayu</code> application: </p>
+<pre><code class="console">$ cd ./apps/glayu
+$ mix escript.build</code></pre>
 <p>Under the glayu root directory you will find the <code class="inline">glayu</code> binary file.</p>
+<p>You can add the binary to your mix escripts directory using:</p>
+<pre><code class="console">$ mix escript.install</code></pre>
 
         </div>
         <div class="col-md-3">
@@ -115,7 +117,6 @@
 </div>
 
         </div>
-        
     </div>
 </div>
 <footer class="footer">

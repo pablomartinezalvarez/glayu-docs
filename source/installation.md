@@ -1,6 +1,7 @@
 ---
 title: Installation
 date: 2017-07-11 13:40:18
+layout: lateral-menu-page
 ---
 # Installation
 
@@ -8,7 +9,7 @@ date: 2017-07-11 13:40:18
 
 Glayu is distributed as an Escript executable, before running it, you need [Erlang](http://www.erlang.org/) installed on your computer. You can find the latest Erlang releases under the [Erlang downloads page](http://www.erlang.org/downloads).
 
-Once you have installed Erlang. Download the latest [glayu binary](https://github.com/pmartinezalvarez/glayu/blob/master/glayu) from the releases section and add it to your PATH. Now you can invoke the `glayu` command.
+Once you have installed Erlang. Download the latest [glayu binary](https://github.com/pmartinezalvarez/glayu/raw/master/apps/glayu/glayu) from the releases section and add it to your PATH. Now you can invoke the `glayu` command.
 
 ## <a id="build-from-source"></a> Build From Source
 
@@ -28,10 +29,17 @@ Get the project dependencies:
 $ mix deps.get
 ```
 
-Generate the glayu Escript executable: 
+Generate the glayu Escript executable from the `./apps/glayu` application: 
 
 ```console
+$ cd ./apps/glayu
 $ mix escript.build
 ```
 
 Under the glayu root directory you will find the `glayu` binary file.
+
+You can add the binary to your mix escripts directory using:
+
+```console
+$ mix escript.install
+```

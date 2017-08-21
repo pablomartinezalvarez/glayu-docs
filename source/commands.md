@@ -1,6 +1,7 @@
 ---
 title: Commands
 date: 2017-07-11 13:40:40
+layout: lateral-menu-page
 ---
 # Commands
 
@@ -122,6 +123,20 @@ $ glayu build _posts/business/.*2017/.*
 ```
 
 generates all 2017 business pages
+
+## <a id="serve"></a> serve
+
+```console
+glayu serve [port]
+```
+
+Starts the preview server at [http://localhost:4000/](http://localhost:4000/)
+
+#### Arguments
+
+ Argument    | Description
+------------ | -------------
+`[port]`  | Alternative server port.
 
 ## <a id="help"></a> help
 

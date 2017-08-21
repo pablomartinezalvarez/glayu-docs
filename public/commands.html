@@ -49,7 +49,6 @@
 </nav>
 <div class="content container">
     <div class="row">
-         <!-- Custom templates are required to prevent these kind of creepy things -->
         <div class="col-md-9">
             <h1>Commands</h1>
 <h2><a id="init"></a> init</h2>
@@ -171,6 +170,24 @@ $ glayu init</code></pre>
 <p>generates the full site</p>
 <pre><code class="console">$ glayu build _posts/business/.*2017/.*</code></pre>
 <p>generates all 2017 business pages</p>
+<h2><a id="serve"></a> serve</h2>
+<pre><code class="console">glayu serve [port]</code></pre>
+<p>Starts the preview server at <a href="http://localhost:4000/">http://localhost:4000/</a></p>
+<h4>Arguments</h4>
+<table>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left">Argument</th><th style="text-align: left">Description</th>
+</tr>
+</thead>
+<tr>
+<td style="text-align: left"><code class="inline">[port]</code></td><td style="text-align: left">Alternative server port.</td>
+</tr>
+</table>
 <h2><a id="help"></a> help</h2>
 <pre><code class="console">glayu help [command]</code></pre>
 <p>Displays help.</p>
@@ -243,6 +260,12 @@ $ glayu init</code></pre>
                     
                     <ul class="nav">
                         <li role="presentation">
+                            <a href="#serve">serve</a>
+                        </li>
+                    </ul>
+                    
+                    <ul class="nav">
+                        <li role="presentation">
                             <a href="#help">help</a>
                         </li>
                     </ul>
@@ -258,7 +281,6 @@ $ glayu init</code></pre>
 </div>
 
         </div>
-        
     </div>
 </div>
 <footer class="footer">

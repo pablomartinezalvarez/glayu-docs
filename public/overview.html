@@ -49,21 +49,20 @@
 </nav>
 <div class="content container">
     <div class="row">
-         <!-- Custom templates are required to prevent these kind of creepy things -->
         <div class="col-md-9">
             <h1>Overview</h1>
 <h2><a id="what-is-glayu"></a> What is Glayu?</h2>
 <p>Glayu is a static site generator focused on mid-sized sites, that generate content frequently and have to deal with multiple categories, like magazines and newspapers.</p>
 <p>What makes Glayu different from other static site generators is the way it structures the source folder: when you publish an article using Glayu, the markdown file is placed inside a subfolder of the <code class="inline">source</code> directory following the permalink definition.</p>
 <p>With the default permalink definition <code class="inline">categories/year/month/day/title</code>  your <code class="inline">source</code> and <code class="inline">public</code> directories will look like:</p>
-<p><img src="./assets/images/overview/workflow.png" alt="Workflow"/></p>
+<p><img src="assets/images/overview/workflow.png" alt="Workflow"/></p>
 <p>The motivation of this <code class="inline">source</code> folder organization is to split the site content in smaller units that can be managed independently. Glayu takes advance of this folder organization to enable the concurrent and partial generation of the site. </p>
 <p>In the previous example a complete build of the site will handle the <code class="inline">/source/_posts/world/2017/07/11</code> and <code class="inline">/source/_posts/us/2017/11</code>  folders concurrently. </p>
 <p>Glayu enables the partial generation of the site by using regular expressions, so if you will be interested in only generate the <code class="inline">world</code> articles you could use the <code class="inline">build</code> command like this:</p>
 <pre><code class="console">$ glayu build _posts/world*</code></pre>
 <h2><a id="quick-start"></a> Quick Start</h2>
 <p>Pre-requisites: <a href="http://www.erlang.org/downloads">Erlang</a> installed on your machine.</p>
-<p>Get the latest <a href="https://github.com/pmartinezalvarez/glayu/raw/master/glayu">Glayu binary</a>, grant execution permissions if needed, and add it to your <code class="inline">PATH</code></p>
+<p>Get the latest <a href="https://github.com/pmartinezalvarez/glayu/raw/master/apps/glayu/glayu">Glayu binary</a>, grant execution permissions if needed, and add it to your <code class="inline">PATH</code></p>
 <p>Init the site.</p>
 <pre><code class="console">$ glayu init glayu_site
 🐦 Your Glayu site has been created at ${PATH_TO_SITE}/glayu_site</code></pre>
@@ -135,7 +134,6 @@ $ glayu new &quot;My First Glayu Article&quot;
 </div>
 
         </div>
-        
     </div>
 </div>
 <footer class="footer">

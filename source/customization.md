@@ -1,6 +1,7 @@
 ---
 title: Customization
 date: 2017-07-11 13:41:03
+layout: lateral-menu-page
 ---
 # Customization
 
@@ -84,6 +85,18 @@ The global layout provides a structure shared by all pages. It should contain a 
   </body>
 </html>
 ```
+
+### Custom Templates
+
+You can override a post or page layout by adding a new `<my-cutom-layout>.eex` under the `_layouts` folder and referencing it on the post/page front-matter as follows:
+
+```
+---
+layout: <my-cutom-layout>
+---
+
+```
+
 
 ### Partials
 

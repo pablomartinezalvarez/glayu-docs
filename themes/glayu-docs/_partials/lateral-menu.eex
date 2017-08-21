@@ -13,13 +13,15 @@ sections = [
   %{name: "Basic Usage", src: "./basic-usage.html", children: [
     %{name: "Site Setup", src: "#site-setup"},
     %{name: "Writing", src: "#writing"},
-    %{name: "Site Generation", src: "#site-generation"}
+    %{name: "Site Generation", src: "#site-generation"},
+    %{name: "Preview Server", src: "#preview-server"}
   ]},
   %{name: "Commands", src: "./commands.html", children: [
     %{name: "init", src: "#init"},
     %{name: "new", src: "#new"},
     %{name: "publish", src: "#publish"},
     %{name: "build", src: "#build"},
+    %{name: "serve", src: "#serve"},
     %{name: "help", src: "#help"}
   ]},
   %{name: "Customization", src: "./customization.html", children: [

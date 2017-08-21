@@ -1,6 +1,7 @@
 ---
 title: Overview
 date: 2017-07-11 12:56:03
+layout: lateral-menu-page
 ---
 # Overview
 
@@ -11,7 +12,7 @@ What makes Glayu different from other static site generators is the way it struc
 
 With the default permalink definition `categories/year/month/day/title`  your `source` and `public` directories will look like:
 
-![Workflow](./assets/images/overview/workflow.png)
+![Workflow](assets/images/overview/workflow.png)
    
 The motivation of this `source` folder organization is to split the site content in smaller units that can be managed independently. Glayu takes advance of this folder organization to enable the concurrent and partial generation of the site. 
 
@@ -27,7 +28,7 @@ $ glayu build _posts/world*
 
 Pre-requisites: [Erlang](http://www.erlang.org/downloads) installed on your machine.
 
-Get the latest [Glayu binary](https://github.com/pmartinezalvarez/glayu/raw/master/glayu), grant execution permissions if needed, and add it to your `PATH`
+Get the latest [Glayu binary](https://github.com/pmartinezalvarez/glayu/raw/master/apps/glayu/glayu), grant execution permissions if needed, and add it to your `PATH`
 
 Init the site.
 

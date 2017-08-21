@@ -49,7 +49,6 @@
 </nav>
 <div class="content container">
     <div class="row">
-         <!-- Custom templates are required to prevent these kind of creepy things -->
         <div class="col-md-9">
             <h1>Basic Usage</h1>
 <h2><a id="site-setup"></a> Site Setup</h2>
@@ -185,6 +184,52 @@ A new Glayu post</code></pre>
 <p>If you want to render only part of your posts you can pass a regular expression to the <code class="inline">build</code> command. Supported regular expressions are based on PCRE (Perl Compatible Regular Expressions):</p>
 <pre><code class="console">$ glayu build _posts/software/.*2017/</code></pre>
 <p>will render the posts under <code class="inline">software</code> published on 2017.</p>
+<h2><a id="preview-server"></a> Preview Server</h2>
+<p>Glayu comes with a preview server to monitor your site changes during the development.</p>
+<p>To start the server on the default port <a href="http://localhost:4000/">http://localhost:4000/</a> run:</p>
+<pre><code class="console">$ glayu serve</code></pre>
+<h3>Pre-requisites</h3>
+<p>The Glayu preview server uses the <a href="https://github.com/falood/file_system">file_system</a> module that depends on:</p>
+<ul>
+<li>Mac fsevent
+</li>
+<li>Linux and FreeBSD inotify
+</li>
+<li>Windows inotify-win
+</li>
+</ul>
+<p>It will look for the required backend binary on you system <code class="inline">PATH</code>:</p>
+<ul>
+<li>On windows download and add <a href="https://github.com/falood/file_system/blob/master/priv/inotifywait.exe">inotifywait.exe</a> to your <code class="inline">PATH</code>
+</li>
+<li>On Linux and FreeBSD install the <code class="inline">inotify-tools</code> package.
+</li>
+<li>On Mac you can generate the <code class="inline">mac_listener</code> from the <a href="https://github.com/falood/file_system">file_system</a> source using the <code class="inline">mix</code> command. After building the project you will find the binary under <code class="inline">./priv/mac_listener</code>.
+</li>
+</ul>
+<h3>Preview URIs</h3>
+<p>Your can preview your drafts, posts and pages by following these examples criteria:</p>
+<table>
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left">Type</th><th style="text-align: left">Source</th><th style="text-align: left">Preview url</th>
+</tr>
+</thead>
+<tr>
+<td style="text-align: left">Draft</td><td style="text-align: left"><code class="inline">./source/_drafts/my-first-glayu-post.md</code></td><td style="text-align: left"><code class="inline">http://localhost:4000/_drafts/my-first-glayu-post.md</code></td>
+</tr>
+<tr>
+<td style="text-align: left">Post</td><td style="text-align: left"><code class="inline">./source/_posts/software/static-sites/2017/07/11/my-first-glayu-article.md</code></td><td style="text-align: left"><code class="inline">http://localhost:4000/software/static-sites/2017/07/11/my-first-glayu-article.html</code> and <code class="inline">http://localhost:4000/_posts/software/static-sites/2017/07/11/my-first-glayu-article.html</code></td>
+</tr>
+<tr>
+<td style="text-align: left">Page</td><td style="text-align: left"><code class="inline">./source/my-first-glayu-page.md</code></td><td style="text-align: left"><code class="inline">http://localhost:4000/my-first-glayu-page.html</code></td>
+</tr>
+</table>
 
         </div>
         <div class="col-md-3">
@@ -226,6 +271,12 @@ A new Glayu post</code></pre>
                         </li>
                     </ul>
                     
+                    <ul class="nav">
+                        <li role="presentation">
+                            <a href="#preview-server">Preview Server</a>
+                        </li>
+                    </ul>
+                    
                 
             
         
@@ -241,7 +292,6 @@ A new Glayu post</code></pre>
 </div>
 
         </div>
-        
     </div>
 </div>
 <footer class="footer">

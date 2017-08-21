@@ -49,7 +49,6 @@
 </nav>
 <div class="content container">
     <div class="row">
-         <!-- Custom templates are required to prevent these kind of creepy things -->
         <div class="col-md-9">
             <h1>Customization</h1>
 <h2><a id="permalinks"></a> Permalinks</h2>
@@ -141,6 +140,12 @@
     &lt;!-- Scripts --&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+<h3>Custom Templates</h3>
+<p>You can override a post or page layout by adding a new <code class="inline">&lt;my-cutom-layout&gt;.eex</code> under the <code class="inline">_layouts</code> folder and referencing it on the post/page front-matter as follows:</p>
+<pre><code class="">---
+layout: &lt;my-cutom-layout&gt;
+---
+</code></pre>
 <h3>Partials</h3>
 <p>Partials are a tool to share components between templates. Typical use cases are page sections like the header, footer or navbars.</p>
 <p>All <code class="inline">.eex</code> files placed under the <code class="inline">_partials</code> folder will be compiled and can be required inside any template using the directive:</p>
@@ -484,7 +489,6 @@
 </div>
 
         </div>
-        
     </div>
 </div>
 <footer class="footer">
